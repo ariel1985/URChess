@@ -1,1 +1,2 @@
-superuser: admin / 1234
+# Chess Multi Player Django Rest Framework
+
