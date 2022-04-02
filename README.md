@@ -3,7 +3,12 @@
 
 ## Client
 
-flutter
+### flutter
+To install : 
+
+First install android studio -> MUST!!!
+
+
 Dart
 
 ## Server 
