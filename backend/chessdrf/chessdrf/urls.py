@@ -22,14 +22,14 @@ from mainapp import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-
-router.register(r'groups', views.GameViewSet)
+router.register(r'game', views.GameViewSet)
+router.register(r'player', views.PlayerViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('main',include("mainapp.urls"))
+    # path('main',include("mainapp.urls"))
 
 ]

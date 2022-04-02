@@ -1,7 +1,7 @@
 from dataclasses import field, fields
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from mainapp.models import Games
+from .models import Games, Player
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -19,4 +19,10 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class GameSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Games
-        fields = ['black', 'white']
+        fields = ['black', 'white', 'boardFEN']
+
+
+class PlayerSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Player
+        fields = ['userID', 'wins']

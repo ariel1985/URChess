@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from mainapp.serializers import UserSerializer, GroupSerializer, GameSerializer
-from mainapp.models import Games
+from .serializers import UserSerializer, GroupSerializer, GameSerializer, PlayerSerializer
+from .models import Games, Player
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -32,3 +32,14 @@ class GameViewSet(viewsets.ModelViewSet):
     queryset = Games.objects.all()
     serializer_class = GameSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class PlayerViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited
+    """
+    queryset = Player.objects.all()
+    serializer_class = PlayerSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
