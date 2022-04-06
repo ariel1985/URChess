@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp',
     'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chessdrf.wsgi.application'
 
+# djangorestframework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication'
+    ),
+    'DEFAULT_PERMISSION_CLASSES':(
+        'rest_framework.permissions.IsAuthenticated'
+    )
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

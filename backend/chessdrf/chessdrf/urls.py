@@ -18,6 +18,8 @@ from django.db import router
 from django.urls import include, path
 from rest_framework import routers
 from mainapp import views
+from rest_framework.authtoken import views as authviews
+
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -29,7 +31,8 @@ router.register(r'player', views.PlayerViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    # path('main',include("mainapp.urls"))
+    path('auth', authviews.obtain_auth_token, name='auth'),
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # path('main',include("mainapp.urls")) # TODO export router to external file (in module)
 
 ]
