@@ -19,10 +19,10 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class GameSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Games
-        fields = ['black', 'white', 'boardFEN']
+        fields = ['url', 'black', 'white', 'boardFEN']
 
 
 class PlayerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Player
-        fields = ['userID', 'wins']
+        fields = ['url', 'userID', 'wins']
